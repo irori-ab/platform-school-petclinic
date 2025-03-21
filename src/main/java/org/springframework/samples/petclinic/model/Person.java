@@ -35,6 +35,8 @@ public class Person extends BaseEntity {
 	@NotBlank
 	private String lastName;
 
+	private String superPower;
+
 	public String getFirstName() {
 		return this.firstName;
 	}
@@ -51,4 +53,11 @@ public class Person extends BaseEntity {
 		this.lastName = lastName;
 	}
 
+	public String getSuperPower() {
+		return superPower;
+	}
+
+	public void setSuperPower(String superPower) {
+		this.superPower = superPower;
+	}
 }
