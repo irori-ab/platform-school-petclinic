@@ -15,10 +15,15 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
+      - id: repo
+        uses: ASzc/change-string-case-action@v6
+        with:
+          string: ${{ github.repository }}
+
       - name: Build with Maven, generate container image and push to GHCR
         run: >
           ./mvnw -B package
-          -Dspring-boot.build-image.imageName=ghcr.io/alexanderlindahl/platform-school-petclinic-lindahl:latest
+          -Dspring-boot.build-image.imageName=ghcr.io/${{ steps.repo.outputs.lowercase }}:latest
           -Dspring-boot.build-image.publish=true
           -Ddocker.publishRegistry.username=${{ github.actor }}
           -Ddocker.publishRegistry.password=${{ secrets.GITHUB_TOKEN }}
