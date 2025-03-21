@@ -16,7 +16,7 @@ jobs:
       - name: Build with Maven, generate container image and push to GHCR
         run: >
           ./mvnw -B package
-          -Dspring-boot.build-image.imageName=ghcr.io/Mikael-Irori/platform-school-petclinic-mikael:latest
+          -Dspring-boot.build-image.imageName=ghcr.io/mikael-irori/platform-school-petclinic-mikael:latest
           -Dspring-boot.build-image.publish=true
           -Ddocker.publishRegistry.username=${{ github.actor }}
           -Ddocker.publishRegistry.password=${{ secrets.GITHUB_TOKEN }}
